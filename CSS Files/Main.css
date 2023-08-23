@@ -71,7 +71,7 @@
     background-color: yellow;
     border-radius: 5px;
     width: 150px;
-    background-image: url("/images/message.jpg");
+    background-image: url("../images/message.jpg");
     background-repeat: no-repeat;
     background-position-x: 60px;
     background-position-y: 10px;
