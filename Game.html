@@ -60,7 +60,16 @@
       background-color: #ff4747;
       color: white;
       border: none;
+
+      /* Prevent blinking */
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* removes mobile flash */
     }
+
+    #btn-1:focus {
+  outline: none;
+  box-shadow: none;
+}
 
     /* Responsive Tweaks */
     @media (max-width: 768px) {
@@ -100,3 +109,4 @@
   </script>
 </body>
 </html>
+
