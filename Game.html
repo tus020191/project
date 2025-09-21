@@ -1,108 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-    <style>
-        /* Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        html, body {
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-        }
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
 
-        body {
-            display: flex;
-            flex-direction: column;
-            border: 5px solid red;
-        }
+    body {
+      display: flex;
+      flex-direction: column;
+      border: 5px solid red;
+      min-height: 100vh; /* make sure body always fills viewport */
+    }
 
-        /* Header */
-        h1 {
-            text-align: center;
-            background-color: #0067b0;
-            color: white;
-            padding: 1rem;
-            font-size: 2rem;
-        }
+    /* Header */
+    h1 {
+      text-align: center;
+      background-color: #0067b0;
+      color: white;
+      padding: 1rem;
+      font-size: 2rem;
+    }
 
-        /* Score Display */
-        #par {
-            text-align: center;
-            background-color: #0067b0;
-            font-size: 2rem;
-            font-weight: bold;
-            padding: 1rem;
-            color: white;
-        }
+    /* Score Display */
+    #par {
+      text-align: center;
+      background-color: #0067b0;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 1rem;
+      color: white;
+    }
 
-        /* Box should take remaining space */
-        #box {
-            flex: 1; /* fills rest of the screen */
-            display: flex;
-        }
+    /* Box takes all remaining space */
+    #box {
+      flex: 1;
+      display: flex;
+    }
 
-        /* Button fills entire box */
-        #btn-1 {
-            width: 100%;
-            height: 100%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background-color: #ff4747;
-            color: white;
-            border: none;
-        }
+    /* Button fills box */
+    #btn-1 {
+      width: 100%;
+      height: 100%;
+      font-size: clamp(1rem, 5vw, 2rem); /* responsive font size */
+      cursor: pointer;
+      background-color: #ff4747;
+      color: white;
+      border: none;
+    }
 
-        /* Responsive Tweaks */
-        @media (max-width: 768px) {
-            h1, #par {
-                font-size: 1.5rem;
-                padding: 0.75rem;
-            }
-            #btn-1 {
-                font-size: 1.2rem;
-            }
-        }
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      h1, #par {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+      }
+    }
 
-        @media (max-width: 480px) {
-            h1, #par {
-                font-size: 1.2rem;
-            }
-            #btn-1 {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    @media (max-width: 480px) {
+      h1, #par {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Game Score</h1>
+  <h1>Game Score</h1>
 
-    <p id="par">
-        <span id="word">0</span> words
-    </p>
+  <p id="par">
+    <span id="word">0</span> words
+  </p>
 
-    <div id="box">
-        <button id="btn-1">Click</button>
-    </div>     
+  <div id="box">
+    <button id="btn-1">Click</button>
+  </div>     
 
-    <script>
-        let btn = document.querySelector("#btn-1");
-        let word = document.querySelector("#word");
-        let counter = 0;
+  <script>
+    let btn = document.querySelector("#btn-1");
+    let word = document.querySelector("#word");
+    let counter = 0;
 
-        // Only button clicks count
-        btn.addEventListener("click", function() {
-            word.textContent = (++counter);
-        });
-    </script>
+    btn.addEventListener("click", function() {
+      word.textContent = (++counter);
+    });
+  </script>
 </body>
 </html>
-
