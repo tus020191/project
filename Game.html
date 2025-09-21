@@ -6,142 +6,103 @@
     <title>Game</title>
     <style>
         /* Reset & Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
 
-body {
-    padding: 5vh 5vw;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border : 5px solid red ;
-    height : 100% ;
-}
+        body {
+            display: flex;
+            flex-direction: column;
+            border: 5px solid red;
+        }
 
-/* Header */
-h1 {
-    text-align: center;
-    background-color: #0067b0;
-    color: white;
-    padding: 1rem;
-    font-size: 2rem;
-}
+        /* Header */
+        h1 {
+            text-align: center;
+            background-color: #0067b0;
+            color: white;
+            padding: 1rem;
+            font-size: 2rem;
+        }
 
-/* Box Container */
-#box {
-    border: 0.5vh solid red;
-    width: 100%;
-    height: 15vh;
-    font-size: 1.25rem;
-    margin: 2vh 0;
-}
+        /* Score Display */
+        #par {
+            text-align: center;
+            background-color: #0067b0;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 1rem;
+            color: white;
+        }
 
-/* Button */
-#btn-1 {
-    width: 100%;
-    height: 100%;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #ff4747;
-    color: white;
-    border: none;
-}
+        /* Box should take remaining space */
+        #box {
+            flex: 1; /* fills rest of the screen */
+            display: flex;
+        }
 
-/* Paragraph Display */
-#par {
-    text-align: center;
-    background-color: #0067b0;
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 1rem;
-    color: white;
-}
+        /* Button fills entire box */
+        #btn-1 {
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background-color: #ff4747;
+            color: white;
+            border: none;
+        }
 
-/* Responsive Tweaks */
-@media (max-width: 768px) {
-    body {
-        padding: 4vh 4vw;
-        height : 100% ;
-    }
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            h1, #par {
+                font-size: 1.5rem;
+                padding: 0.75rem;
+            }
+            #btn-1 {
+                font-size: 1.2rem;
+            }
+        }
 
-    h1, #par {
-        font-size: 1.5rem;
-        padding: 0.75rem;
-    }
-
-    #box {
-        height: 12vh;
-        font-size: 1.1rem;
-    }
-
-    #par {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 3vh 3vw;
-        height : 100% ;
-    }
-
-    h1, #par {
-        font-size: 1.2rem;
-    }
-
-    #box {
-        height: 10vh;
-        font-size: 1rem;
-    }
-
-    #btn-1 {
-        font-size: 0.9rem;
-    }
-
-    #par {
-        font-size: 1.2rem;
-    }
-    }
-
-
+        @media (max-width: 480px) {
+            h1, #par {
+                font-size: 1.2rem;
+            }
+            #btn-1 {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
 <body>
-
     <h1>Game Score</h1>
 
-    <div id="box" >
-        <button id="btn-1">
-            click
-        </button>
-    </div>
-
     <p id="par">
-        <span id="word"> 0</span> words
-        
+        <span id="word">0</span> words
     </p>
-    
 
+    <div id="box">
+        <button id="btn-1">Click</button>
+    </div>     
 
-<script>
+    <script>
+        let btn = document.querySelector("#btn-1");
+        let word = document.querySelector("#word");
+        let counter = 0;
 
-    let btn = document.querySelector("#btn-1");
-    let word = document.querySelector("#word");
-    let counter = 0 ;
-
-    document.body.addEventListener("click", function(){
-
-        word.textContent  = (++counter)  ;
-    });
-</script>
+        // Only button clicks count
+        btn.addEventListener("click", function() {
+            word.textContent = (++counter);
+        });
+    </script>
 </body>
 </html>
 
